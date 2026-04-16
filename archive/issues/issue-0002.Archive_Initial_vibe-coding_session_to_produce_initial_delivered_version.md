@@ -15,19 +15,19 @@
 
 ---
 
-### Usage Notes
+### Usage Notes (for the user)
 
 #### Method 1 (old-school) direct file upload:
-- **To invoke:** Edit the `BASENAME` in the prompt file, upload it, and prompt:
+- **To invoke:** Edit the `BASENAME` in this file, upload it, and prompt:
   *"Please archive this conversation per the attached spec."*
 - Place this prompt at or near the **end** of the conversation you want to archive.
 
-#### Method 2: The Cool-Kid (or... lazy-ass, errrr. I mean: _efficient_) approach:
+#### Method 2: The Cool-Kid (or... lazy-ass) approach:
 ```
 Using the prompt at this URL: 
 https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/prompt_archive-this-conversation.md
 
-...and a BASENAME spec of: `archive_my-super-cool-topic`;
+...and a BASENAME spec of: `what-i-want_this-sukka_to-be-named`;
 
 ...please archive this conversation per the spec in the prompt.
 ```
@@ -39,9 +39,4 @@ https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/bl
   branch's images and context may become inaccessible.
 - **Archive early, curate later.** Capture everything faithfully now; trim
   what you don't need with a markdown editor afterward.
-
-
-### Example Usage (at `claude.ai`):
-
-
 
