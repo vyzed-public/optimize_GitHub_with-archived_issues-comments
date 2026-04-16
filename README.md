@@ -21,7 +21,7 @@ It creates the `archive/issues/` directory and writes markdown files into it loc
 #### How It Talks to GitHub
 The script uses `gh issue list` and `gh issue view` to fetch issue data from the remote GitHub repository via the GitHub API. 
 
-It does not use git to read issues (issues aren't in git). 
+It does not use `git` to read issues (issues aren't in `git`). 
 
 The OWNER/REPO argument tells `gh` which remote repo to query, so the script doesn't need to be run from any particular directory — but you'll want to run it from the repo root so that `archive/issues/` lands in the right place.
 
