@@ -8,8 +8,7 @@
 
 ### Our process:
 1. Use the web GUI to create new file: `.github/workflows/sync-issues.yml`
-2. ...that contains the **Workflow Automation** code suggested by Claude Code in:
-    * [Optimize GitHub by Adding Issues and Comments into the actual Repo](https://claude.ai/chat/84eb3d54-a739-4b76-91a7-2c1a10139347)
+2. ...that contains **Workflow Automation** code suggested by Claude Code.
 
 #### Details (for the forgetful):  
 
