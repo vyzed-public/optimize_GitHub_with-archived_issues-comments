@@ -80,7 +80,7 @@ ${BASENAME}.zip
 
 ---
 
-## Processing Rules (for Claude)
+## Processing Rules (for you, the AI)
 
 - Do NOT include this archival prompt and its response in the archived output.
 - If any uploaded files are NOT images (e.g., `.md`, `.zip`, `.txt`), exclude
