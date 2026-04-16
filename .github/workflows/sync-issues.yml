@@ -1,0 +1,123 @@
+name: Sync Issues to Archive
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, deleted]
+  issue_comment:
+    types: [created, edited, deleted]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Handle deleted issue
+        if: github.event.action == 'deleted' && github.event_name == 'issues'
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          cd $GITHUB_WORKSPACE
+          mkdir -p archive/issues
+          rm -f archive/issues/issue-$(printf '%04d' $ISSUE_NUMBER).*
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add archive/issues/
+          git diff --cached --quiet && exit 0
+          git commit -m "archive: remove deleted issue #${ISSUE_NUMBER}"
+          git push
+
+      - name: Sync issue to markdown
+        if: ${{ !(github.event.action == 'deleted' && github.event_name == 'issues') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          
+          # Fetch issue data as JSON
+          gh issue view "$ISSUE_NUMBER" \
+            --repo ${{ github.repository }} \
+            --json number,title,body,state,labels,createdAt,closedAt,author,comments \
+            > /tmp/issue.json
+          
+          mkdir -p archive/issues
+          
+          # Build the markdown file with sanitized title in filename
+          python3 << 'PYTHON'
+          import json, os, glob, re
+
+          with open("/tmp/issue.json") as f:
+              issue = json.load(f)
+
+          n = issue["number"]
+
+          # --- Sanitize title for filename ---
+          title = issue.get("title", "")
+          # Strip to ASCII only
+          title = title.encode("ascii", "ignore").decode("ascii")
+          # Replace spaces with underscores
+          title = title.replace(" ", "_")
+          # Remove anything that isn't alphanumeric, underscore, hyphen, or dot
+          title = re.sub(r"[^A-Za-z0-9_\-.]", "", title)
+          # Collapse multiple underscores
+          title = re.sub(r"_+", "_", title)
+          # Strip leading/trailing underscores
+          title = title.strip("_")
+          # Truncate to 100 chars, adding ellipsis if needed
+          if len(title) > 100:
+              title = title[:100].rsplit("_", 1)[0] + "..."
+
+          # --- Delete any existing file for this issue number (handles renames) ---
+          for old_file in glob.glob(f"archive/issues/issue-{n:04d}.*"):
+              os.remove(old_file)
+
+          # --- Build markdown content ---
+          md = []
+          md.append(f"# #{n}: {issue['title']}")
+          md.append("")
+          md.append(f"**State:** {issue['state']}")
+          md.append(f"**Author:** {issue['author']['login']}")
+          md.append(f"**Created:** {issue['createdAt']}")
+          if issue.get("closedAt"):
+              md.append(f"**Closed:** {issue['closedAt']}")
+          if issue.get("labels"):
+              labels = ", ".join(l["name"] for l in issue["labels"])
+              md.append(f"**Labels:** {labels}")
+          md.append("")
+          md.append("---")
+          md.append("")
+          md.append(issue.get("body") or "*No description provided.*")
+
+          if issue.get("comments"):
+              md.append("")
+              md.append("---")
+              md.append("")
+              md.append("## Comments")
+              for c in issue["comments"]:
+                  md.append("")
+                  md.append(f"### {c['author']['login']} — {c['createdAt']}")
+                  md.append("")
+                  md.append(c["body"])
+
+          # --- Write file ---
+          if title:
+              filename = f"archive/issues/issue-{n:04d}.{title}.md"
+          else:
+              filename = f"archive/issues/issue-{n:04d}.md"
+          with open(filename, "w") as f:
+              f.write("\n".join(md) + "\n")
+          PYTHON
+
+      - name: Commit and push
+        if: ${{ !(github.event.action == 'deleted' && github.event_name == 'issues') }}
+        run: |
+          cd $GITHUB_WORKSPACE
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add archive/issues/
+          git diff --cached --quiet && exit 0
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          git commit -m "archive: sync issue #${ISSUE_NUMBER}"
+          git push
