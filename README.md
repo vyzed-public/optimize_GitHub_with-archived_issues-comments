@@ -10,6 +10,12 @@ TL;DR? There's a summary document here:
 
 ---
 
+## How Tos
+
+Useful SOPs can be pulled straight off the (now) [Closed Issues List](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/issues?q=is%3Aissue%20state%3Aclosed)
+
+---
+
 ## Usage
 
 ### For any new items added as Issues and/or Comments:
