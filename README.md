@@ -1,5 +1,13 @@
 # optimize_GitHub_with-archived_issues-comments
 
+## Background
+
+We archived our "vibe coding" design & build/debug session here: 
+* [Archive: In-Repo Issue Tracking via GitHub Actions](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/archive_issues-and-comments_in-repo.md)
+
+TL;DR? There's a summary dosument here: 
+* [Discussion Summary: In-Repo Issue Tracking via archive/issues/](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/summary.issue-tracking_IN-repo_via-dir_docs_issues.md)
+
 ## Usage
 
 ### For any new items added as Issues and/or Comments:
