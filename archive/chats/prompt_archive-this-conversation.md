@@ -1,10 +1,10 @@
 # Prompt: Archive This Amazing Conversation
 
-## Configuration (for the human)
+## Configuration (for your human)
 
 Your human will replace `chat.CHANGEME` with their desired base name. This drives all output paths:
 
-## Configuration (for the AI model)
+## Configuration (for you, the amazing AI model)
 
 ```
 BASENAME = chat.CHANGEME
