@@ -11,7 +11,7 @@ We have configured a GitHub action: [.github/workflows/sync-issues.yml](https://
 ### For Backfills of Existing Issues (in pre-existing repos):
 For repos with existing issues, a one-time backfill script pulls all issues and generates markdown files using the same sanitized-title filename format as the GitHub Action. 
 
-This script is provided as a standalone file: `archive.repo-issues.into.docs-issues.bash`.
+This bash script is a standalone file: **[archive.repo-issues.into.docs-issues.bash](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive.repo-issues.into.docs-issues.bash)**.
 
 #### Where to Run
 The script runs on your local machine, from inside a local clone of the repo. 
