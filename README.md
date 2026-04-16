@@ -4,12 +4,12 @@
 
 ### For any new items added as Issues and/or Comments:
 
-We have configured a GitHub action: [.github/workflows/sync-issues.yml](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/.github/workflows/sync-issues.yml) to add/update issues & comments into our repo's `archive/issues/` dir on a per-issue basis.
+We can configured a GitHub action: [.github/workflows/sync-issues.yml](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/.github/workflows/sync-issues.yml) to add/update issues & comments into our repo's `archive/issues/` dir on a per-issue basis.
 
 ---
 
 ### For Backfills of Existing Issues (in pre-existing repos):
-For repos with existing issues, a one-time backfill script pulls all issues and generates markdown files using the same sanitized-title filename format as the GitHub Action. 
+For repos with existing issues, a one-time backfill script can pull all issues and generates markdown files using the same sanitized-title filename format as the GitHub Action. 
 
 This bash script is a standalone file: **[archive.repo-issues.into.docs-issues.bash](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive.repo-issues.into.docs-issues.bash)**.
 
