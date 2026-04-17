@@ -12,7 +12,7 @@ TL;DR? There's a summary document here:
 
 ## How Tos
 
-Useful SOPs can be pulled straight off the (now) [Closed Issues List](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/issues?q=is%3Aissue%20state%3Aclosed)
+Useful SOPs can be pulled straight off the (now) [Closed Issues List](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/issues?q=is%3Aissue%20state%3Aclosed%20sort%3Acreated-asc)
 
 ---
 
