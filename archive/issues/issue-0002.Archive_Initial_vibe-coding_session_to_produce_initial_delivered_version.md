@@ -7,7 +7,7 @@
 
 ---
 
-### Here's [our initial '"vibe-coding" session](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/archive_issues-and-comments_in-repo.md)...
+### Here's our initial '"vibe-coding" session: [Archive: In-Repo Issue Tracking via GitHub Actions](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/archive_issues-and-comments_in-repo.md)...
 
 ...which we produced with the help of this awesome prompt: 
 * [prompt_archive-this-conversation.md](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/prompt_archive-this-conversation.md)
