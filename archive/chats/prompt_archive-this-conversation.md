@@ -41,6 +41,7 @@ You have everything you need:
 - **No `<thinking>` blocks.**
 - **Do NOT** include separate code artifact files.
 - **DO** include inline code in the markdown output.
+- **DO** preserve any and all newlines entered by the user.
 - **Preserve language hints** (e.g., ` ```bash `, ` ```javascript `).
 
 ## Image Handling
