@@ -17,11 +17,15 @@
 ### Usage Notes
 
 #### Method 1 (old-school) direct file upload:
-- **To invoke:** Edit the `BASENAME` in the prompt file, upload it, and prompt:
-  *"Please archive this conversation per the attached spec."*
-- Place this prompt at or near the **end** of the conversation you want to archive.
+1. Download the prompt file, and upload it to the Web UI; 
+2. Place this prompt at or near the **end** of the conversation you want to archive.
+```
+Archive this conversation per the uploaded prompt;
+using a BASENAME spec of: `archive_my-super-cool-topic.
+```
 
 #### Method 2: The Cool-Kid (or... lazy-ass, errrr. I mean: _efficient_) approach:
+NB: You may ruin into BS-ish "rate limiting errors" with this approach.
 ```
 Using the prompt at this URL: 
 https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/prompt_archive-this-conversation.md
