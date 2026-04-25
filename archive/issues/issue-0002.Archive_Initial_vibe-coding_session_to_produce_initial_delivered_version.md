@@ -17,7 +17,7 @@
 ### Usage Notes
 
 #### Method 1 (old-school) direct file upload:
-1. Download the prompt file, and upload it to the Web UI; 
+1. Download [the prompt file](https://github.com/vyzed-public/optimize_GitHub_with-archived_issues-comments/blob/main/archive/chats/prompt_archive-this-conversation.md), and upload it to the Web UI; 
 2. Place this prompt at or near the **end** of the conversation you want to archive.
 ```
 Archive this conversation per the uploaded prompt;
